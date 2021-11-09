@@ -9,6 +9,13 @@ app.get('/', function(req, res){
   res.sendFile('index.html', {root:path.join(__dirname, './files')});
 })
 
+/*
+That might be the good example for synchronous vs asynchronous when you write fs.statSync() rather 
+than fs.Sync() .
+
+Here synchronous function fs.statSync() has to block remaining javascript code until finding whether 
+file exists or not.
+*/
 app.get(/^(.+)$/, function(req, res){
   console.log(req.params);
   try {
